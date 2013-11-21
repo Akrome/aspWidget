@@ -1,6 +1,0 @@
-Cost:5
-ReturnTime:2
-WaterQuality:0
-AirQuality:0
-VisualQuality:0
-EnvImpact:0
