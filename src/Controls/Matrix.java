@@ -36,6 +36,9 @@ public class Matrix extends BasicControl{
 			p.popMatrix();
 			valid=true;
 		}
+
+		@Override
+		public void manageClick(float x, float y) {}
 		
 	}
 	
@@ -64,6 +67,12 @@ public class Matrix extends BasicControl{
 			p.popMatrix();
 			valid=true;
 		}		
+	}
+
+	@Override
+	public void manageClick(float x, float y) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

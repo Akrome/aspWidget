@@ -25,6 +25,8 @@ public abstract class BasicControl {
 	}
 	
 	public abstract void draw();
+	
+	public abstract void manageClick (float x, float y);
 
 	//TO BE CALLED ONLY WITHIN A PUSH/POP MATRIX PAIR
 	protected void clearBackground() {

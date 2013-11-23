@@ -31,4 +31,7 @@ public class DrawingPanel extends BasicControl{
 		}		
 	}
 
+	@Override
+	public void manageClick(float x, float y) {}
+
 }
