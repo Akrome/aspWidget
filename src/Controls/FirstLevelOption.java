@@ -9,7 +9,7 @@ public class FirstLevelOption extends BasicControl {
 	PImage off;
 	PImage over;
 
-	boolean isOn;
+	public boolean isOn;
 	
 	public FirstLevelOption(float x, float y, float width, float height, PImage on, PImage off, PImage over) {
 		super(x, y, width, height);
@@ -20,13 +20,22 @@ public class FirstLevelOption extends BasicControl {
 
 	@Override
 	public void draw() {
-		if (!valid) {
-			Config.p.pushMatrix();
-			Config.p.image(on, x, y, width, height);
-			Config.p.popMatrix();
-			valid = true;
-		}
+		Config.p.pushMatrix();
+		if (hasMouseOver) 
+			Config.p.image(over,x,y);
+		else if (isOn)
+			Config.p.image(on, x, y);
+		else
+			Config.p.image(off, x, y);
+		
+		Config.p.popMatrix();
+	}
 
+	@Override
+	public void click(float mx, float my) {
+		// TODO Auto-generated method stub
+		this.isOn=!this.isOn;
+		
 	}
 
 }
