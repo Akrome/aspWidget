@@ -11,9 +11,9 @@ public class Program extends PApplet {
 	
 	public void setup(){
 		Config.p = this;
+		Assets.loadAssets(this);
 		this.size((int)Config.width, (int)Config.height);
 		initControls();
-		Assets.loadAssets(this);
 		System.out.println(Assets.assets);
 	}
 	

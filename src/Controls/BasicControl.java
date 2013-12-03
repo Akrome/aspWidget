@@ -1,10 +1,10 @@
 package Controls;
 
 public abstract class BasicControl {
-	public final float width;
-	public final float height;
-	public final float x;
-	public final float y;
+	public float width;
+	public float height;
+	public float x;
+	public float y;
 	boolean valid;
 	
 	public BasicControl (float x, float y, float width, float height) {

@@ -9,7 +9,7 @@ public class Config {
 	public static final float x0 = 0f;
 	public static final float y0 = 0f;
 	public static final float width0 = width* 1/4 ;
-	public static final float height0 = height* 2/3; 
+	public static final float height0 = height* 3/5; 
 	
 	public static final float x1 = width0;
 	public static final float y1 = y0;
@@ -18,18 +18,18 @@ public class Config {
 	
 	public static final float x2 = x0;
 	public static final float y2 = height0;
-	public static final float width2 = width0;
-	public static final float height2 = height - height0;
+	public static final float width2 = width* 1/2;
+	public static final float height2 = height* 1/5;
 	
-	public static final float x3 = x1;
-	public static final float y3 = y2;
-	public static final float width3 = width*1/4;
-	public static final float height3 = height2;
+	public static final float x3 = x2;
+	public static final float y3 = y2+width2;
+	public static final float width3 = width2;
+	public static final float height3 = height-(height2+height0);
 	
-	public static final float x4 = x3 + width3;
-	public static final float y4 = y3;
-	public static final float width4 = width - (width2+width3);
-	public static final float height4 = height3;
+	public static final float x4 = x2 + width2;
+	public static final float y4 = y2;
+	public static final float width4 = width - width2;
+	public static final float height4 = height-height1;
 	
 	//***************************************
 	
