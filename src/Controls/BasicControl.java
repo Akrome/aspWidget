@@ -7,6 +7,9 @@ public abstract class BasicControl {
 	public float y;
 	boolean valid;
 	
+	public boolean hasMouseOver;
+	
+	
 	public BasicControl (float x, float y, float width, float height) {
 		this.x = x;
 		this.y = y;
@@ -23,12 +26,10 @@ public abstract class BasicControl {
 		return "X: "+x+" Y:"+y+" WIDTH:"+width+" HEIGHT:"+height;
 	}
 	
-	public void mouseDown(float mx, float my) {
-		
-	}
+	public abstract void click(float mx, float my);
 	
-	public void mouseOver(float mx, float my) {
-		
+	public boolean contains (float mx, float my) {
+		return x <= mx && mx <= x+width && y <= my && my <= y+height;
 	}
 	
 }

@@ -12,4 +12,11 @@ public class ThirdLevelSelector extends BasicControl {
 
 	}
 
+	@Override
+	public void click(float mx, float my) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

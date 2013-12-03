@@ -22,11 +22,11 @@ public class FirstLevelOption extends BasicControl {
 	public void draw() {
 		Config.p.pushMatrix();
 		if (hasMouseOver) 
-			Config.p.image(over,x,y);
+			Config.p.image(over,x,y,width, height);
 		else if (isOn)
-			Config.p.image(on, x, y);
+			Config.p.image(on, x, y,width, height);
 		else
-			Config.p.image(off, x, y);
+			Config.p.image(off, x, y,width, height);
 		
 		Config.p.popMatrix();
 	}

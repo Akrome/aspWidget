@@ -28,7 +28,7 @@ public class FirstLevelSelector extends BasicControl {
 				PImage on = (PImage) areaHM.get("on");
 				PImage off = (PImage) areaHM.get("off");
 				PImage over = (PImage) areaHM.get("over");
-				options.add(new FirstLevelOption(x+(2+i*4)*basicWidth, y+2*basicHeight, 3*basicWidth, 3*basicHeight, on, off, over));
+				options.add(new FirstLevelOption(x+(1+i*5)*basicWidth, y+1*basicHeight, 4*basicWidth, 4*basicHeight, on, off, over));
 				i++;
 			}
 		}

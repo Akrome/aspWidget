@@ -15,8 +15,6 @@ public class Assets {
 		HashMap<String, Object> innerMap = new HashMap<String, Object>();
 		for (File f: folder.listFiles()) {
 			if (!f.isDirectory()) {
-				System.out.println(f.getName());
-				System.out.println(f.getName().substring(0, f.getName().lastIndexOf('.')));
 				innerMap.put(f.getName().substring(0, f.getName().lastIndexOf('.')), Config.p.loadImage(f.getPath()));
 			}
 			else {
