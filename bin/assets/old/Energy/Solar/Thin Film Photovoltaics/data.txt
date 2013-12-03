@@ -1,6 +1,0 @@
-Cost:5
-Payback:15
-Air:3
-Water:0
-Waste:0
-VisEnv:5 

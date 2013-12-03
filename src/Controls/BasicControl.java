@@ -1,39 +1,34 @@
 package Controls;
 
-import processing.core.PApplet;
-
 public abstract class BasicControl {
+	public final float width;
+	public final float height;
+	public final float x;
+	public final float y;
+	boolean valid;
 	
-	protected boolean valid = false;
-	
-	protected final PApplet p;
-	public float x;
-	public float y;
-	public float width;
-	public float height;
-	
-	public int backgroundColor = 0xFFFFFFFF;
-	public int borderColor = 0xFF000000;
-	
-	
-	public BasicControl(float x, float y, float width, float height, PApplet p) {
-		this.p = p;
+	public BasicControl (float x, float y, float width, float height) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
-		this.height = height;		
+		this.height = height;
+		this.valid = false;
 	}
 	
 	public abstract void draw();
 	
-	public abstract void manageClick (float x, float y);
-
-	//TO BE CALLED ONLY WITHIN A PUSH/POP MATRIX PAIR
-	protected void clearBackground() {
-		p.fill(backgroundColor);
-		p.rectMode(PApplet.CORNER);
-		p.rect(x, y, width, height);
+	public void invalidate() {this.valid=false;}
+	
+	public String toString() {
+		return "X: "+x+" Y:"+y+" WIDTH:"+width+" HEIGHT:"+height;
 	}
 	
-	public void invalidate() {valid=false;}
+	public void mouseDown(float mx, float my) {
+		
+	}
+	
+	public void mouseOver(float mx, float my) {
+		
+	}
+	
 }
