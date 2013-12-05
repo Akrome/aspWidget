@@ -3,7 +3,7 @@ package Controls;
 import processing.core.PImage;
 import main.Config;
 
-public class FirstLevelOption extends BasicControl {
+public class SecondLevelOption extends BasicControl {
 	
 	PImage on;
 	PImage off;
@@ -11,7 +11,7 @@ public class FirstLevelOption extends BasicControl {
 	public String name;
 	public boolean isOn;
 	
-	public FirstLevelOption(float x, float y, float width, float height, PImage on, PImage off, PImage over, String name) {
+	public SecondLevelOption(float x, float y, float width, float height, PImage on, PImage off, PImage over, String name) {
 		super(x, y, width, height);
 		this.on=on;
 		this.off=off;

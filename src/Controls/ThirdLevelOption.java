@@ -3,7 +3,7 @@ package Controls;
 import processing.core.PImage;
 import main.Config;
 
-public class FirstLevelOption extends BasicControl {
+public class ThirdLevelOption extends BasicControl {
 	
 	PImage on;
 	PImage off;
@@ -11,7 +11,7 @@ public class FirstLevelOption extends BasicControl {
 	public String name;
 	public boolean isOn;
 	
-	public FirstLevelOption(float x, float y, float width, float height, PImage on, PImage off, PImage over, String name) {
+	public ThirdLevelOption(float x, float y, float width, float height, PImage on, PImage off, PImage over, String name) {
 		super(x, y, width, height);
 		this.on=on;
 		this.off=off;
@@ -19,7 +19,8 @@ public class FirstLevelOption extends BasicControl {
 		this.name=name;
 	}
 
-	public void draw(boolean isOn) {
+	@Override
+	public void draw() {
 		Config.p.pushMatrix();
 		if (contains(Config.p.mouseX, Config.p.mouseY)) 
 			Config.p.image(over,x,y,width, height);
@@ -35,13 +36,6 @@ public class FirstLevelOption extends BasicControl {
 	public void click(float mx, float my) {
 		// TODO Auto-generated method stub
 		this.isOn=!this.isOn;
-		
-	}
-
-	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-		draw(false);
 		
 	}
 

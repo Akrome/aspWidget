@@ -17,12 +17,12 @@ public class Config {
 	public static final float height1 = height0;
 	
 	public static final float x2 = x0;
-	public static final float y2 = height0;
+	public static final float y2 = y0+height0;
 	public static final float width2 = width* 1/2;
 	public static final float height2 = height* 1/5;
 	
 	public static final float x3 = x2;
-	public static final float y3 = y2+width2;
+	public static final float y3 = y2+height2;
 	public static final float width3 = width2;
 	public static final float height3 = height-(height2+height0);
 	

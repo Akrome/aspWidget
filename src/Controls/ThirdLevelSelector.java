@@ -1,5 +1,9 @@
 package Controls;
 
+import main.Colors;
+import main.Config;
+import processing.core.PApplet;
+
 public class ThirdLevelSelector extends BasicControl {
 	
 	public ThirdLevelSelector(float x, float y, float width, float height) {
@@ -8,7 +12,11 @@ public class ThirdLevelSelector extends BasicControl {
 
 	@Override
 	public void draw() {
-		// TODO Auto-generated method stub
+		Config.p.pushMatrix();
+		Config.p.rectMode(PApplet.CORNER);
+		Config.p.fill(Colors.blue);
+		Config.p.rect(x, y, width, height);
+		Config.p.popMatrix();
 
 	}
 

@@ -1,5 +1,9 @@
 package Controls;
 
+import main.Colors;
+import main.Config;
+import processing.core.PApplet;
+
 public class MapArea extends BasicControl {
 
 
@@ -9,8 +13,11 @@ public class MapArea extends BasicControl {
 	
 	@Override
 	public void draw() {
-		// TODO Auto-generated method stub
-
+		Config.p.pushMatrix();
+		Config.p.rectMode(PApplet.CORNER);
+		Config.p.fill(Colors.white);
+		Config.p.rect(x, y, width, height);
+		Config.p.popMatrix();
 	}
 
 	@Override

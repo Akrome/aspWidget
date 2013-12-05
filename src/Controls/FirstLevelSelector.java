@@ -12,7 +12,8 @@ import processing.core.PImage;
 
 public class FirstLevelSelector extends BasicControl {
 
-	LinkedList<FirstLevelOption> options;
+	public LinkedList<FirstLevelOption> options;
+	public FirstLevelOption activeOption;
 	
 	@SuppressWarnings("unchecked")
 	public FirstLevelSelector(float x, float y, float width, float height) {
@@ -28,7 +29,12 @@ public class FirstLevelSelector extends BasicControl {
 				PImage on = (PImage) areaHM.get("on");
 				PImage off = (PImage) areaHM.get("off");
 				PImage over = (PImage) areaHM.get("over");
-				options.add(new FirstLevelOption(x+(1+i*5)*basicWidth, y+1*basicHeight, 4*basicWidth, 4*basicHeight, on, off, over));
+				FirstLevelOption flo = new FirstLevelOption(x+(1+i*5)*basicWidth, y+1*basicHeight, 4*basicWidth, 4*basicHeight, on, off, over,area.substring(2));
+				options.add(flo);
+				if (activeOption==null) {
+					activeOption = flo;
+					activeOption.isOn=true;
+				}
 				i++;
 			}
 		}
@@ -41,24 +47,14 @@ public class FirstLevelSelector extends BasicControl {
 	
 	@Override
 	public void draw() {
-		if (hasMouseOver) {
-			for (FirstLevelOption fo:options) {
-				fo.hasMouseOver=fo.contains(Config.p.mouseX, Config.p.mouseY);
-			}
-			valid=false;
+		Config.p.pushMatrix();
+		Config.p.fill(Colors.red);
+		Config.p.rectMode(PApplet.CORNER);
+		Config.p.rect(x,y,width,height);
+		for (FirstLevelOption fo: options) {
+			fo.draw(fo==activeOption);
 		}
-		
-		if (!valid) {
-			Config.p.pushMatrix();
-			Config.p.fill(Colors.red);
-			Config.p.rectMode(PApplet.CORNER);
-			Config.p.rect(x,y,width,height);
-			for (FirstLevelOption fo: options) {
-				fo.draw();
-			}
-			Config.p.popMatrix();
-			valid = true;
-		}
+		Config.p.popMatrix();
 	}
 
 	@Override
@@ -67,12 +63,13 @@ public class FirstLevelSelector extends BasicControl {
 			if (fo.contains(mx, my)) {
 				fo.click(mx,  my);
 				if (fo.isOn) {
+					activeOption=fo;
 					for (FirstLevelOption foo: options) {
-						if (foo!=fo) {
+						if (fo!=foo)
 							foo.isOn=false;
-						}
 					}
 				}
+				break;
 			}
 		}
 	}
