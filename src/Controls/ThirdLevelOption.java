@@ -19,8 +19,7 @@ public class ThirdLevelOption extends BasicControl {
 		this.name=name;
 	}
 
-	@Override
-	public void draw() {
+	public void draw(boolean isOn) {
 		Config.p.pushMatrix();
 		if (contains(Config.p.mouseX, Config.p.mouseY)) 
 			Config.p.image(over,x,y,width, height);
@@ -36,6 +35,13 @@ public class ThirdLevelOption extends BasicControl {
 	public void click(float mx, float my) {
 		// TODO Auto-generated method stub
 		this.isOn=!this.isOn;
+		
+	}
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		draw(false);
 		
 	}
 

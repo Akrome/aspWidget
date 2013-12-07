@@ -31,7 +31,7 @@ public class SecondLevelSelector extends BasicControl {
 				PImage on = (PImage) areaHM.get("on");
 				PImage off = (PImage) areaHM.get("off");
 				PImage over = (PImage) areaHM.get("over");
-				SecondLevelOption slo = new SecondLevelOption(x+(1+i*5)*basicWidth, y+1*basicHeight, 4*basicWidth, 4*basicHeight, on, off, over,area.substring(2));
+				SecondLevelOption slo = new SecondLevelOption(x+(1+i*5)*basicWidth, y+1*basicHeight, 4*basicWidth, 4*basicHeight, on, off, over,area);
 				options.add(slo);
 				if (activeOption==null) {
 					activeOption = slo;

@@ -10,6 +10,7 @@ public class Program extends PApplet {
 
 	LinkedList<BasicControl> controls;
 	HashMap<String, SecondLevelSelector> secondLevelSelectors;
+	HashMap<String, ThirdLevelSelector> thirdLevelSelectors;
 	
 	public void setup(){		
 		Config.p = this;
@@ -24,9 +25,12 @@ public class Program extends PApplet {
 			bc.draw();
 			
 			//Second Level
-			secondLevelSelectors.get(fls.activeOption.name).draw();
+			SecondLevelSelector sls = secondLevelSelectors.get(fls.activeOption.name);
+			sls.draw();
 			
 			//Third Level
+			ThirdLevelSelector tls = thirdLevelSelectors.get(sls.activeOption.name);
+			tls.draw();
 		}
 		
 	}
@@ -43,10 +47,17 @@ public class Program extends PApplet {
 		
 		secondLevelSelectors = new HashMap<String, SecondLevelSelector>();
 		for (String name : ((HashMap<String, Object>) (Assets.assets.get("secondlevelselector"))).keySet()) {
-			secondLevelSelectors.put(name, new SecondLevelSelector(Config.x3, Config.y3, Config.width3, Config.height3, name));
+			secondLevelSelectors.put(name, new SecondLevelSelector(Config.x3, Config.y3, Config.width3, Config.height3, name));	
 		}
 		
-		controls.add(new ThirdLevelSelector(Config.x4, Config.y4, Config.width4, Config.height4));
+		thirdLevelSelectors = new HashMap<String, ThirdLevelSelector>();
+		for (String secondName : secondLevelSelectors.keySet()) {
+			HashMap<String, Object> hm = (HashMap<String, Object>) ((HashMap<String, Object>) (Assets.assets.get("secondlevelselector"))).get(secondName);
+		
+			for (String name : hm.keySet()) {
+				thirdLevelSelectors.put(name, new ThirdLevelSelector(Config.x4, Config.y4, Config.width4, Config.height4, secondName, name));	
+			}
+		}
 	}
 
 
@@ -59,6 +70,10 @@ public class Program extends PApplet {
 			SecondLevelSelector sls = secondLevelSelectors.get(fls.activeOption.name);
 			if (sls.contains(mouseX, mouseY))
 				sls.click(mouseX, mouseY);
+
+			ThirdLevelSelector tls = thirdLevelSelectors.get(sls.activeOption.name);
+			if (tls.contains(mouseX, mouseY))
+				tls.click(mouseX, mouseY);
 		}
 	}
 }
