@@ -15,10 +15,14 @@ public class SecondLevelSelector extends BasicControl {
 	public LinkedList<SecondLevelOption> options;
 	public SecondLevelOption activeOption;
 	public String name;
+	private float epsilonX;
+	private float epsilonY;
 	
 	@SuppressWarnings("unchecked")
 	public SecondLevelSelector(float x, float y, float width, float height, String name) {
 		super(x, y, width, height);
+		epsilonX = width/13;
+		epsilonY = height/20;
 		this.name=name;
 		options=new LinkedList<SecondLevelOption>();
 		try {
@@ -31,7 +35,12 @@ public class SecondLevelSelector extends BasicControl {
 				PImage on = (PImage) areaHM.get("on");
 				PImage off = (PImage) areaHM.get("off");
 				PImage over = (PImage) areaHM.get("over");
-				SecondLevelOption slo = new SecondLevelOption(x+(1+i*5)*basicWidth, y+1*basicHeight, 4*basicWidth, 4*basicHeight, on, off, over,area);
+				float mx, my, mw, mh;
+				mx = (float) (x+ (4.5*i*epsilonX));
+				my = y+3*epsilonY;
+				mw = 4*epsilonX;
+				mh = 5*epsilonY;
+				SecondLevelOption slo = new SecondLevelOption(mx, my, mw, mh, on, off, over,area);
 				options.add(slo);
 				if (activeOption==null) {
 					activeOption = slo;

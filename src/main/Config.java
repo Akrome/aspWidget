@@ -4,12 +4,12 @@ import processing.core.PApplet;
 
 public class Config {
 	public static final float width = 1100f;
-	public static final float height = 900f;
+	public static final float height = 822f;
 	
 	public static final float x0 = 0f;
 	public static final float y0 = 0f;
 	public static final float width0 = width* 1/4 ;
-	public static final float height0 = height* 3/5; 
+	public static final float height0 = height* 2/3; 
 	
 	public static final float x1 = width0;
 	public static final float y1 = y0;
@@ -18,12 +18,12 @@ public class Config {
 	
 	public static final float x2 = x0;
 	public static final float y2 = y0+height0;
-	public static final float width2 = width* 1/2 *2/5;
+	public static final float width2 = width* 1/2 * 7/20;
 	public static final float height2 = height - height0;
 	
 	public static final float x3 = x2+width2;
 	public static final float y3 = y2;
-	public static final float width3 = width *1/2 * 3/5;
+	public static final float width3 = width *1/2 * 13/20;
 	public static final float height3 = height-(height0);
 	
 	public static final float x4 = x2 + width2 + width3;

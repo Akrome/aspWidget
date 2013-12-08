@@ -17,9 +17,15 @@ public class FirstLevelSelector extends BasicControl {
 	private FirstLevelOption left;
 	private FirstLevelOption right;
 	
+	private float epsilonX;
+	private float epsilonY;
+	
 	@SuppressWarnings("unchecked")
 	public FirstLevelSelector(float x, float y, float width, float height) {
 		super(x, y, width, height);
+		epsilonX = width/7;
+		epsilonY = height/20;
+		
 		options=new LinkedList<FirstLevelOption>();
 		try {
 			HashMap<String, Object> areasHM = (HashMap<String, Object>)(Assets.assets.get("firstlevelselector"));
@@ -66,28 +72,31 @@ public class FirstLevelSelector extends BasicControl {
 	
 	void makeLeft (FirstLevelOption fo) {
 		fo.isOn=false;
-		fo.x = x;
-		fo.width = width/2;
-		fo.y = y+height*2/3;
-		fo.height = height*1/3;
+		fo.x = x+epsilonX;
+		float eeX = epsilonX /3;
+		fo.width = (float) (2*epsilonX)+eeX;
+		fo.y = y+14*epsilonY;
+		fo.height = (float) (4.5*epsilonY);
 		left = fo;
 	}
 	
 	void makeRight (FirstLevelOption fo) {
 		fo.isOn=false;
-		fo.x = x+width/2;
-		fo.width = width/2;
-		fo.y = y+height*2/3;
-		fo.height = height*1/3;
+
+		float eeX = epsilonX /3;
+		fo.width = (float) (2*epsilonX)+eeX;
+		fo.x = (float) (x+width-epsilonX-fo.width);
+		fo.y = y+14*epsilonY;
+		fo.height = (float) (4.5*epsilonY);
 		right=fo;
 	}
 	
 	void makeActive (FirstLevelOption fo) {
 		fo.isOn=true;
-		fo.x = x;
-		fo.width = width;
-		fo.y = y;
-		fo.height = height * 2/3;
+		fo.x = x+epsilonX;
+		fo.width = 5*epsilonX;
+		fo.y = y+3*epsilonY;
+		fo.height = 10 * epsilonY;
 		activeOption = fo;
 	}
 	
