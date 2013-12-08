@@ -28,8 +28,6 @@ public class SecondLevelSelector extends BasicControl {
 		try {
 			HashMap<String, Object> areasHM = ((HashMap<String, Object>)((HashMap<String, Object>)(Assets.assets.get("secondlevelselector"))).get(name));
 			int i=0;
-			float basicWidth = width * 1 / 15;
-			float basicHeight = height * 1 / 5;
 			for (String area: Utilities.asSortedList(areasHM.keySet())) {
 				HashMap<String, Object> areaHM = (HashMap<String, Object>)areasHM.get(area);
 				PImage on = (PImage) areaHM.get("on");
@@ -39,7 +37,7 @@ public class SecondLevelSelector extends BasicControl {
 				mx = (float) (x+ (4.5*i*epsilonX));
 				my = y+3*epsilonY;
 				mw = 4*epsilonX;
-				mh = 5*epsilonY;
+				mh = 8*epsilonY;
 				SecondLevelOption slo = new SecondLevelOption(mx, my, mw, mh, on, off, over,area);
 				options.add(slo);
 				if (activeOption==null) {
