@@ -34,10 +34,6 @@ public class ThirdLevelSelector extends BasicControl {
 				PImage over = (PImage) areaHM.get("over");
 				ThirdLevelOption tlo = new ThirdLevelOption(x+(1+i*5)*basicWidth, y+1*basicHeight, 4*basicWidth, 4*basicHeight, on, off, over,area);
 				options.add(tlo);
-				if (activeOption==null) {
-					activeOption = tlo;
-					activeOption.isOn=true;
-				}
 					
 				i++;
 			}
@@ -72,6 +68,9 @@ public class ThirdLevelSelector extends BasicControl {
 						if (to!=too)
 							too.isOn=false;
 					}
+				}
+				else {
+					activeOption = null;
 				}
 				break;
 			}

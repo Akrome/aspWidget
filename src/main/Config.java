@@ -18,17 +18,17 @@ public class Config {
 	
 	public static final float x2 = x0;
 	public static final float y2 = y0+height0;
-	public static final float width2 = width* 1/2;
-	public static final float height2 = height* 1/5;
+	public static final float width2 = width* 1/2 *2/5;
+	public static final float height2 = height - height0;
 	
-	public static final float x3 = x2;
-	public static final float y3 = y2+height2;
-	public static final float width3 = width2;
-	public static final float height3 = height-(height2+height0);
+	public static final float x3 = x2+width2;
+	public static final float y3 = y2;
+	public static final float width3 = width *1/2 * 3/5;
+	public static final float height3 = height-(height0);
 	
-	public static final float x4 = x2 + width2;
+	public static final float x4 = x2 + width2 + width3;
 	public static final float y4 = y2;
-	public static final float width4 = width - width2;
+	public static final float width4 = width *1/2;
 	public static final float height4 = height-height1;
 	
 	//***************************************

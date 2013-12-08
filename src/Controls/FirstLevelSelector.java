@@ -14,6 +14,8 @@ public class FirstLevelSelector extends BasicControl {
 
 	public LinkedList<FirstLevelOption> options;
 	public FirstLevelOption activeOption;
+	private FirstLevelOption left;
+	private FirstLevelOption right;
 	
 	@SuppressWarnings("unchecked")
 	public FirstLevelSelector(float x, float y, float width, float height) {
@@ -21,21 +23,23 @@ public class FirstLevelSelector extends BasicControl {
 		options=new LinkedList<FirstLevelOption>();
 		try {
 			HashMap<String, Object> areasHM = (HashMap<String, Object>)(Assets.assets.get("firstlevelselector"));
-			int i=0;
-			float basicWidth = width * 1 / 15;
-			float basicHeight = height * 1 / 5;
 			for (String area: Utilities.asSortedList(areasHM.keySet())) {
 				HashMap<String, Object> areaHM = (HashMap<String, Object>)areasHM.get(area);
-				PImage on = (PImage) areaHM.get("on");
-				PImage off = (PImage) areaHM.get("off");
-				PImage over = (PImage) areaHM.get("over");
-				FirstLevelOption flo = new FirstLevelOption(x+(1+i*5)*basicWidth, y+1*basicHeight, 4*basicWidth, 4*basicHeight, on, off, over,area);
+				PImage big = (PImage) areaHM.get("big");
+				PImage small = (PImage) areaHM.get("small");
+				PImage smallover = (PImage) areaHM.get("smallover");
+				PImage bigover = (PImage) areaHM.get("bigover");
+				FirstLevelOption flo = new FirstLevelOption(0,0,0,0,big, small, smallover, bigover,area);
 				options.add(flo);
 				if (activeOption==null) {
-					activeOption = flo;
-					activeOption.isOn=true;
+					makeActive(flo);
 				}
-				i++;
+				else if (left==null) {
+					makeLeft(flo);
+				}
+				else if (right == null) {
+					makeRight(flo);
+				}
 			}
 		}
 		catch (Exception e){
@@ -45,32 +49,69 @@ public class FirstLevelSelector extends BasicControl {
 		
 	}
 	
+	
+	
 	@Override
 	public void draw() {
 		Config.p.pushMatrix();
 		Config.p.fill(Colors.red);
 		Config.p.rectMode(PApplet.CORNER);
 		Config.p.rect(x,y,width,height);
+		
 		for (FirstLevelOption fo: options) {
 			fo.draw(fo==activeOption);
 		}
 		Config.p.popMatrix();
 	}
-
+	
+	void makeLeft (FirstLevelOption fo) {
+		fo.isOn=false;
+		fo.x = x;
+		fo.width = width/2;
+		fo.y = y+height*2/3;
+		fo.height = height*1/3;
+		left = fo;
+	}
+	
+	void makeRight (FirstLevelOption fo) {
+		fo.isOn=false;
+		fo.x = x+width/2;
+		fo.width = width/2;
+		fo.y = y+height*2/3;
+		fo.height = height*1/3;
+		right=fo;
+	}
+	
+	void makeActive (FirstLevelOption fo) {
+		fo.isOn=true;
+		fo.x = x;
+		fo.width = width;
+		fo.y = y;
+		fo.height = height * 2/3;
+		activeOption = fo;
+	}
+	
 	@Override
 	public void click(float mx, float my) {
-		for (FirstLevelOption fo:options) {
+		for (FirstLevelOption fo: options) {
 			if (fo.contains(mx, my)) {
-				fo.click(mx,  my);
-				if (fo.isOn) {
-					activeOption=fo;
-					for (FirstLevelOption foo: options) {
-						if (fo!=foo)
-							foo.isOn=false;
-					}
+				System.out.println("AA");
+				if (fo==left) {
+					System.out.println("BB");
+					FirstLevelOption foo = activeOption;
+					makeLeft(foo);
+					makeActive(fo);
+					break;
+					
 				}
-				break;
+				else if (fo==right) {
+					System.out.println("CC");
+					FirstLevelOption foo = activeOption;
+					makeActive(fo);
+					makeRight(foo);		
+					break;
+				}
 			}
 		}
-	}
+	}	
 }
