@@ -10,15 +10,17 @@ public class ThirdLevelOption extends BasicControl {
 	PImage on;
 	PImage off;
 	PImage over;
+	PImage text;
 	public String name;
 	public boolean isOn;
 	public Solution solution;
 	
-	public ThirdLevelOption(float x, float y, float width, float height, PImage on, PImage off, PImage over, String name, Solution s) {
+	public ThirdLevelOption(float x, float y, float width, float height, PImage on, PImage off, PImage over, PImage text, String name, Solution s) {
 		super(x, y, width, height);
 		this.on=on;
 		this.off=off;
 		this.over=over;
+		this.text=text;
 		this.name=name;
 		this.solution=s;
 	}
@@ -26,11 +28,13 @@ public class ThirdLevelOption extends BasicControl {
 	public void draw(boolean isOn) {
 		Config.p.pushMatrix();
 		if (contains(Config.p.mouseX, Config.p.mouseY)) 
-			Config.p.image(over,x,y,width, height);
+			Config.p.image(over,x,y);
 		else if (isOn)
-			Config.p.image(on, x, y,width, height);
+			Config.p.image(on, x, y);
 		else
-			Config.p.image(off, x, y,width, height);
+			Config.p.image(off, x, y);
+		
+		Config.p.image(text, x, y+height/2);
 		
 		Config.p.popMatrix();
 	}
