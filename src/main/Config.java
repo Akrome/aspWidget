@@ -33,8 +33,10 @@ public class Config {
 	
 	//***************************************
 	
-	public static final int maxBudget = 10;
-	public static final int maxEffort = 10;
+	public static final int max = 10;
+	public static final int min = 0;
+	public static final int startResource = 10;
+	public static final int startScore = 5;
 	
 	//***************************************
 	

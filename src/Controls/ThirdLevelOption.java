@@ -40,27 +40,34 @@ public class ThirdLevelOption extends BasicControl {
 		toggle();		
 	}
 	
+	public void off() {
+		isOn=false;
+		Scores.currentAir-=solution.data.get("air");
+		Scores.currentBudget+=solution.data.get("cost");
+		Scores.currentEffort+=solution.data.get("effort");
+		Scores.currentWaste-=solution.data.get("waste");
+		Scores.currentWater-=solution.data.get("water");
+		Scores.currentVisenv-=solution.data.get("visenv");
+	}
+	
+	public void on() {
+		isOn=true;
+		Scores.currentAir+=solution.data.get("air");
+		Scores.currentBudget-=solution.data.get("cost");
+		Scores.currentEffort-=solution.data.get("effort");
+		Scores.currentWaste+=solution.data.get("waste");
+		Scores.currentWater+=solution.data.get("water");
+		Scores.currentVisenv+=solution.data.get("visenv");
+	}
 	public void toggle() {
 		if (isOn) {
-			isOn=false;
-			Scores.currentAir-=solution.data.get("air");
-			Scores.currentBudget+=solution.data.get("cost");
-			Scores.currentEffort+=solution.data.get("effort");
-			Scores.currentVisenv-=solution.data.get("visenv");
-			Scores.currentWaste-=solution.data.get("waste");
-			Scores.currentWater-=solution.data.get("water");
+			off();
 		}
 		else {
 			int c = solution.data.get("cost");
 			int e = solution.data.get("effort");
 			if (Scores.currentBudget >= c && Scores.currentEffort >= e) {
-				isOn=true;
-				Scores.currentAir+=solution.data.get("air");
-				Scores.currentBudget-=solution.data.get("cost");
-				Scores.currentEffort-=solution.data.get("effort");
-				Scores.currentVisenv+=solution.data.get("visenv");
-				Scores.currentWaste+=solution.data.get("waste");
-				Scores.currentWater+=solution.data.get("water");
+				on();
 			}			
 		}
 	}

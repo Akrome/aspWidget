@@ -66,9 +66,9 @@ public class ThirdLevelSelector extends BasicControl {
 				if (to.isOn) {
 					activeOption=to;
 					for (ThirdLevelOption too: options) {
-						if (to!=too) {
+						if (activeOption!=too) {
 							if (too.isOn) {
-								too.toggle();
+								too.off();
 							}
 						}
 						

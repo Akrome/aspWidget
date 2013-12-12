@@ -10,7 +10,7 @@ public class Program extends PApplet {
 
 	LinkedList<BasicControl> controls;
 	HashMap<String, SecondLevelSelector> secondLevelSelectors;
-	HashMap<String, ThirdLevelSelector> thirdLevelSelectors;
+	public HashMap<String, ThirdLevelSelector> thirdLevelSelectors;
 	
 	public void setup(){		
 		Config.p = this;
@@ -66,14 +66,15 @@ public class Program extends PApplet {
 			if (bc.contains(mouseX, mouseY)) {
 				bc.click(mouseX, mouseY);
 			}
+		}
 			
-			SecondLevelSelector sls = secondLevelSelectors.get(fls.activeOption.name);
-			if (sls.contains(mouseX, mouseY))
-				sls.click(mouseX, mouseY);
+		SecondLevelSelector sls = secondLevelSelectors.get(fls.activeOption.name);
+		if (sls.contains(mouseX, mouseY))
+			sls.click(mouseX, mouseY);
 
-			ThirdLevelSelector tls = thirdLevelSelectors.get(sls.activeOption.name);
-			if (tls.contains(mouseX, mouseY))
-				tls.click(mouseX, mouseY);
+		ThirdLevelSelector tls = thirdLevelSelectors.get(sls.activeOption.name);
+		if (tls.contains(mouseX, mouseY)) {
+			tls.click(mouseX, mouseY);
 		}
 	}
 }

@@ -24,13 +24,13 @@ public class SecondLevelOption extends BasicControl {
 	public void draw(boolean isOn) {
 		Config.p.pushMatrix();
 		if (contains(Config.p.mouseX, Config.p.mouseY)) 
-			Config.p.image(over,x,y,width, height/2);
+			Config.p.image(over,x,y);
 		else if (isOn)
-			Config.p.image(on, x, y,width, height/2);
+			Config.p.image(on, x, y);
 		else
-			Config.p.image(off, x, y,width, height/2);
+			Config.p.image(off, x, y);
 		
-		Config.p.image(text, x, y+height/2, width, height/2);
+		Config.p.image(text, x, y+height/2);
 		
 		Config.p.popMatrix();
 	}

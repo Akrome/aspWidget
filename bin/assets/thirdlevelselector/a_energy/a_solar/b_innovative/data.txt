@@ -3,4 +3,4 @@ effort=0
 air=3
 water=0
 waste=0
-visenv=-3
+visenv=-2

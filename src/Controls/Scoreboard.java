@@ -36,34 +36,57 @@ public class Scoreboard extends BasicControl {
 	@Override
 	public void draw() {
 		Config.p.pushMatrix();
-		Config.p.image(background,  x,  y, width, height);
-		float xBase = width / 14;
-		float yBase = (float) (height / 4.13);
-		float yStep = (float) (height/8.18);
-		float xStep = (float) (width/11.768);
+		Config.p.image(background,  x,  y);
+		float xBase = 25;
+		float yBase = 129;
+		float w = 22;
+		float xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
 
 		for (int i=0; i<Scores.currentBudget;i++) {
-			Config.p.image(budget, xBase + xStep*i, yBase + yStep*0);
+			Config.p.image(budget, xBase + (w+xStep)*i, yBase);
 		}
 		
+		yBase = 195;
+		w = 15;
+		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
 		for (int i=0; i<Scores.currentEffort;i++) {
-			Config.p.image(effort, xBase + xStep*i, yBase + yStep*1);
+			Config.p.image(effort, xBase + (w+xStep)*i, yBase);
 		}
 		
-		for (int i=0; i<Scores.currentAir;i++) {
-			Config.p.image(air, xBase + xStep*i, yBase + yStep*2);
+		yBase = 273;
+		w = 21;
+		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
+		int ca = Math.max(Scores.currentAir, Config.min);
+		ca = Math.min(ca, Config.max);
+		for (int i=0; i<ca;i++) {
+			Config.p.image(air, xBase + (w+xStep)*i, yBase);
 		}
 
-		for (int i=0; i<Scores.currentWater; i++) {
-			Config.p.image(water, xBase + xStep*i, yBase + yStep*3);
+		yBase = 336;
+		w = 16;
+		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
+		int cwat = Math.max(Scores.currentWater, Config.min);
+		cwat = Math.min(cwat, Config.max);
+		for (int i=0; i<cwat; i++) {
+			Config.p.image(water, xBase + (w+xStep)*i, yBase);
 		}
 		
-		for (int i=0; i<Scores.currentWaste;i++) {
-			Config.p.image(waste, xBase + xStep*i, yBase + yStep*4);
+		yBase = 409;
+		w = 20;
+		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
+		int cwas = Math.max(Scores.currentWaste, Config.min);
+		cwas = Math.min(cwas, Config.max);
+		for (int i=0; i<cwas;i++) {
+			Config.p.image(waste, xBase + (w+xStep)*i, yBase);
 		}
 		
-		for (int i=0; i<Scores.currentVisenv;i++) {
-			Config.p.image(visenv, xBase + xStep*i, yBase + yStep*5);
+		yBase = 479;
+		w = 22;
+		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
+		int cv = Math.max(Scores.currentVisenv, Config.min);
+		cv = Math.min(cv, Config.max);
+		for (int i=0; i<cv;i++) {
+			Config.p.image(visenv, xBase + (w+xStep)*i, yBase);
 		}
 		
 		
