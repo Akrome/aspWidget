@@ -11,30 +11,37 @@ public class ThirdLevelOption extends BasicControl {
 	PImage off;
 	PImage over;
 	PImage text;
+	PImage overText;
+	PImage mapImage;
 	public String name;
 	public boolean isOn;
 	public Solution solution;
 	
-	public ThirdLevelOption(float x, float y, float width, float height, PImage on, PImage off, PImage over, PImage text, String name, Solution s) {
+	public ThirdLevelOption(float x, float y, float width, float height, PImage on, PImage off, PImage over, PImage text, PImage overText, PImage mapImage, String name, Solution s) {
 		super(x, y, width, height);
 		this.on=on;
 		this.off=off;
 		this.over=over;
 		this.text=text;
+		this.overText=overText;
+		this.mapImage=mapImage;
 		this.name=name;
 		this.solution=s;
 	}
 
 	public void draw(boolean isOn) {
 		Config.p.pushMatrix();
-		if (contains(Config.p.mouseX, Config.p.mouseY)) 
+		if (contains(Config.p.mouseX, Config.p.mouseY)) {
 			Config.p.image(over,x,y);
-		else if (isOn)
-			Config.p.image(on, x, y);
-		else
-			Config.p.image(off, x, y);
-		
-		Config.p.image(text, x, y+height/2);
+			Config.p.image(overText, x, y+height/2);
+		}
+		else {
+			Config.p.image(text, x, y+height/2);
+			if (isOn) 
+				Config.p.image(on, x, y);
+			else
+				Config.p.image(off, x, y);
+		}
 		
 		Config.p.popMatrix();
 	}
@@ -52,6 +59,7 @@ public class ThirdLevelOption extends BasicControl {
 		Scores.currentWaste-=solution.data.get("waste");
 		Scores.currentWater-=solution.data.get("water");
 		Scores.currentVisenv-=solution.data.get("visenv");
+		Config.pr.map.images.remove(this.name);
 	}
 	
 	public void on() {
@@ -62,6 +70,7 @@ public class ThirdLevelOption extends BasicControl {
 		Scores.currentWaste+=solution.data.get("waste");
 		Scores.currentWater+=solution.data.get("water");
 		Scores.currentVisenv+=solution.data.get("visenv");
+		Config.pr.map.images.put(this.name, this.mapImage);
 	}
 	public void toggle() {
 		int c = solution.data.get("cost");

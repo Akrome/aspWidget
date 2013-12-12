@@ -16,12 +16,17 @@ public class ThirdLevelSelector extends BasicControl {
 	public LinkedList<ThirdLevelOption> options;
 	public ThirdLevelOption activeOption;
 	public String name;
+	private float epsilonX;
+	private float epsilonY;
+	
 	
 	@SuppressWarnings("unchecked")
 	public ThirdLevelSelector(float x, float y, float width, float height, String secondName, String name) {
 		super(x, y, width, height);
 		this.name=name;
 		options=new LinkedList<ThirdLevelOption>();
+		epsilonX = width/13;
+		epsilonY = height/20;
 		try {
 			HashMap<String, Object> areasHM = ((HashMap<String, Object>)((HashMap<String, Object>)(Assets.assets.get("thirdlevelselector"))).get(secondName));
 			HashMap<String, Object> areasHM2 = (HashMap<String, Object>) areasHM.get(name);
@@ -34,7 +39,14 @@ public class ThirdLevelSelector extends BasicControl {
 				PImage off = (PImage) areaHM.get("off");
 				PImage over = (PImage) areaHM.get("over");
 				PImage text  = (PImage) areaHM.get("text");
-				ThirdLevelOption tlo = new ThirdLevelOption(x+(1+i*5)*basicWidth, y+1*basicHeight, 4*basicWidth, 4*basicHeight, on, off, over, text, area, Assets.data.get(area));
+				PImage overText = (PImage) areaHM.get("overtext");		
+				PImage mapImage = (PImage) areaHM.get("maparea");		
+				float mx, my, mw, mh;
+				mx = (float) (x+ 20+ (4.5*i*epsilonX));
+				my = y+3*epsilonY;
+				mw = 4*epsilonX;
+				mh = 16*epsilonY;
+				ThirdLevelOption tlo = new ThirdLevelOption(mx, my, mw, mh, on, off, over, text, overText, mapImage, area, Assets.data.get(area));
 				options.add(tlo);
 					
 				i++;
@@ -50,7 +62,8 @@ public class ThirdLevelSelector extends BasicControl {
 	@Override
 	public void draw() {
 		Config.p.pushMatrix();
-		Config.p.fill(Colors.red);
+		Config.p.fill(Colors.white);
+		Config.p.noStroke();
 		Config.p.rectMode(PApplet.CORNER);
 		Config.p.rect(x,y,width,height);
 		for (ThirdLevelOption to: options) {

@@ -45,5 +45,6 @@ public class Config {
 	//**************************************
 			
 	public static PApplet p;
+	public static Program pr;
 	
 }

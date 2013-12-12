@@ -12,8 +12,11 @@ public class Program extends PApplet {
 	HashMap<String, SecondLevelSelector> secondLevelSelectors;
 	public HashMap<String, ThirdLevelSelector> thirdLevelSelectors;
 	
+	public MapArea map;
+	
 	public void setup(){		
 		Config.p = this;
+		Config.pr = this;
 		Assets.loadAssets(this);
 
 		this.size((int)Config.width, (int)Config.height);
@@ -58,6 +61,9 @@ public class Program extends PApplet {
 				thirdLevelSelectors.put(name, new ThirdLevelSelector(Config.x4, Config.y4, Config.width4, Config.height4, secondName, name));	
 			}
 		}
+		
+		map = new MapArea(Config.x1, Config.y1, Config.width1, Config.height1);
+		controls.add(map);
 	}
 
 
