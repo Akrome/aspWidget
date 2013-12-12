@@ -60,13 +60,15 @@ public class ThirdLevelOption extends BasicControl {
 		Scores.currentVisenv+=solution.data.get("visenv");
 	}
 	public void toggle() {
+		int c = solution.data.get("cost");
+		int e = solution.data.get("effort");
 		if (isOn) {
-			off();
+			if (Scores.currentBudget+c >= Config.min && Scores.currentEffort+e >= Config.min) {
+				off();
+			}
 		}
 		else {
-			int c = solution.data.get("cost");
-			int e = solution.data.get("effort");
-			if (Scores.currentBudget >= c && Scores.currentEffort >= e) {
+			if (Scores.currentBudget-c >= Config.min && Scores.currentEffort-e >= Config.min) {
 				on();
 			}			
 		}

@@ -1,0 +1,6 @@
+cost=2
+effort=2
+air=-1
+water=-1
+waste=1
+visenv=-1

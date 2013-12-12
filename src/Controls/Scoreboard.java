@@ -41,15 +41,19 @@ public class Scoreboard extends BasicControl {
 		float yBase = 129;
 		float w = 22;
 		float xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
-
-		for (int i=0; i<Scores.currentBudget;i++) {
+		
+		int cb = Math.max(Scores.currentBudget, Config.min);
+		cb = Math.min(cb, Config.max);
+		for (int i=0; i<cb;i++) {
 			Config.p.image(budget, xBase + (w+xStep)*i, yBase);
 		}
 		
 		yBase = 195;
 		w = 15;
 		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
-		for (int i=0; i<Scores.currentEffort;i++) {
+		int ce = Math.max(Scores.currentEffort, Config.min);
+		ce = Math.min(ce, Config.max);
+		for (int i=0; i<ce;i++) {
 			Config.p.image(effort, xBase + (w+xStep)*i, yBase);
 		}
 		
