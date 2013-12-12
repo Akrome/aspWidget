@@ -18,7 +18,6 @@ public class Program extends PApplet {
 
 		this.size((int)Config.width, (int)Config.height);
 		initControls();
-		System.out.println(Assets.assets);
 	}
 	
 	public void draw(){

@@ -33,12 +33,13 @@ public class SecondLevelSelector extends BasicControl {
 				PImage on = (PImage) areaHM.get("on");
 				PImage off = (PImage) areaHM.get("off");
 				PImage over = (PImage) areaHM.get("over");
+				PImage text = (PImage) areaHM.get("text");
 				float mx, my, mw, mh;
 				mx = (float) (x+ (4.5*i*epsilonX));
 				my = y+3*epsilonY;
 				mw = 4*epsilonX;
-				mh = 8*epsilonY;
-				SecondLevelOption slo = new SecondLevelOption(mx, my, mw, mh, on, off, over,area);
+				mh = 16*epsilonY;
+				SecondLevelOption slo = new SecondLevelOption(mx, my, mw, mh, on, off, over, text, area);
 				options.add(slo);
 				if (activeOption==null) {
 					activeOption = slo;
@@ -58,7 +59,8 @@ public class SecondLevelSelector extends BasicControl {
 	@Override
 	public void draw() {
 		Config.p.pushMatrix();
-		Config.p.fill(Colors.red);
+		Config.p.noStroke();
+		Config.p.fill(Colors.white);
 		Config.p.rectMode(PApplet.CORNER);
 		Config.p.rect(x,y,width,height);
 		for (SecondLevelOption so: options) {

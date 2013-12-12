@@ -60,7 +60,8 @@ public class FirstLevelSelector extends BasicControl {
 	@Override
 	public void draw() {
 		Config.p.pushMatrix();
-		Config.p.fill(Colors.red);
+		Config.p.noStroke();
+		Config.p.fill(Colors.white);
 		Config.p.rectMode(PApplet.CORNER);
 		Config.p.rect(x,y,width,height);
 		
@@ -104,9 +105,7 @@ public class FirstLevelSelector extends BasicControl {
 	public void click(float mx, float my) {
 		for (FirstLevelOption fo: options) {
 			if (fo.contains(mx, my)) {
-				System.out.println("AA");
 				if (fo==left) {
-					System.out.println("BB");
 					FirstLevelOption foo = activeOption;
 					makeLeft(foo);
 					makeActive(fo);
@@ -114,7 +113,6 @@ public class FirstLevelSelector extends BasicControl {
 					
 				}
 				else if (fo==right) {
-					System.out.println("CC");
 					FirstLevelOption foo = activeOption;
 					makeActive(fo);
 					makeRight(foo);		

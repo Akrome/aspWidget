@@ -8,7 +8,7 @@ public class Config {
 	
 	public static final float x0 = 0f;
 	public static final float y0 = 0f;
-	public static final float width0 = width* 1/4 ;
+	public static final float width0 = width* 1/3 ;
 	public static final float height0 = height* 2/3; 
 	
 	public static final float x1 = width0;
