@@ -25,14 +25,12 @@ public class ThirdLevelSelector extends BasicControl {
 		super(x, y, width, height);
 		this.name=name;
 		options=new LinkedList<ThirdLevelOption>();
-		epsilonX = width/13;
+		epsilonX = width/20;
 		epsilonY = height/20;
 		try {
 			HashMap<String, Object> areasHM = ((HashMap<String, Object>)((HashMap<String, Object>)(Assets.assets.get("thirdlevelselector"))).get(secondName));
 			HashMap<String, Object> areasHM2 = (HashMap<String, Object>) areasHM.get(name);
 			int i=0;
-			float basicWidth = width * 1 / 15;
-			float basicHeight = height * 1 / 5;
 			for (String area: Utilities.asSortedList(areasHM2.keySet())) {
 				HashMap<String, Object> areaHM = (HashMap<String, Object>)areasHM2.get(area);
 				PImage on = (PImage) areaHM.get("on");
@@ -42,9 +40,9 @@ public class ThirdLevelSelector extends BasicControl {
 				PImage overText = (PImage) areaHM.get("overtext");		
 				PImage mapImage = (PImage) areaHM.get("maparea");		
 				float mx, my, mw, mh;
-				mx = (float) (x+ 20+ (4.5*i*epsilonX));
+				mx = (float) (x+ (6.33*i*epsilonX)+epsilonX);
 				my = y+3*epsilonY;
-				mw = 4*epsilonX;
+				mw = (float) (5.33*epsilonX);
 				mh = 16*epsilonY;
 				ThirdLevelOption tlo = new ThirdLevelOption(mx, my, mw, mh, on, off, over, text, overText, mapImage, area, Assets.data.get(area));
 				options.add(tlo);

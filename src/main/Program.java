@@ -47,7 +47,7 @@ public class Program extends PApplet {
 		controls.add(new MapArea(Config.x1, Config.y1, Config.width1, Config.height1));
 		fls=new FirstLevelSelector(Config.x2, Config.y2, Config.width2, Config.height2);
 		controls.add(fls);
-		
+
 		secondLevelSelectors = new HashMap<String, SecondLevelSelector>();
 		for (String name : ((HashMap<String, Object>) (Assets.assets.get("secondlevelselector"))).keySet()) {
 			secondLevelSelectors.put(name, new SecondLevelSelector(Config.x3, Config.y3, Config.width3, Config.height3, name));	
