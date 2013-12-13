@@ -76,7 +76,7 @@ public class FirstLevelSelector extends BasicControl {
 		fo.x = x+epsilonX;
 		float eeX = epsilonX /3;
 		fo.width = (float) (2*epsilonX)+eeX;
-		fo.y = y+13*epsilonY;
+		fo.y = y+14*epsilonY;
 		fo.height = (float) (4.5*epsilonY);
 		left = fo;
 	}
@@ -87,7 +87,7 @@ public class FirstLevelSelector extends BasicControl {
 		float eeX = epsilonX /3;
 		fo.width = (float) (2*epsilonX)+eeX;
 		fo.x = (float) (x+width-epsilonX-fo.width);
-		fo.y = y+13*epsilonY;
+		fo.y = y+14*epsilonY;
 		fo.height = (float) (4.5*epsilonY);
 		right=fo;
 	}
@@ -96,7 +96,7 @@ public class FirstLevelSelector extends BasicControl {
 		fo.isOn=true;
 		fo.x = x+epsilonX;
 		fo.width = 5*epsilonX;
-		fo.y = y+2*epsilonY;
+		fo.y = y+3*epsilonY;
 		fo.height = 10 * epsilonY;
 		activeOption = fo;
 	}

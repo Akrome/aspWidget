@@ -38,7 +38,7 @@ public class Scoreboard extends BasicControl {
 		Config.p.pushMatrix();
 		Config.p.image(background,  x,  y);
 		float xBase = 25;
-		float yBase = 179;
+		float yBase = 129;
 		float w = 22;
 		float xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
 		
@@ -48,7 +48,7 @@ public class Scoreboard extends BasicControl {
 			Config.p.image(budget, xBase + (w+xStep)*i, yBase);
 		}
 		
-		yBase = 245;
+		yBase = 195;
 		w = 15;
 		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
 		int ce = Math.max(Scores.currentEffort, Config.min);
@@ -57,7 +57,7 @@ public class Scoreboard extends BasicControl {
 			Config.p.image(effort, xBase + (w+xStep)*i, yBase);
 		}
 		
-		yBase = 323;
+		yBase = 273;
 		w = 21;
 		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
 		int ca = Math.max(Scores.currentAir, Config.min);
@@ -66,7 +66,7 @@ public class Scoreboard extends BasicControl {
 			Config.p.image(air, xBase + (w+xStep)*i, yBase);
 		}
 
-		yBase = 386;
+		yBase = 336;
 		w = 16;
 		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
 		int cwat = Math.max(Scores.currentWater, Config.min);
@@ -75,7 +75,7 @@ public class Scoreboard extends BasicControl {
 			Config.p.image(water, xBase + (w+xStep)*i, yBase);
 		}
 		
-		yBase = 459;
+		yBase = 409;
 		w = 20;
 		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
 		int cwas = Math.max(Scores.currentWaste, Config.min);
@@ -84,7 +84,7 @@ public class Scoreboard extends BasicControl {
 			Config.p.image(waste, xBase + (w+xStep)*i, yBase);
 		}
 		
-		yBase = 529;
+		yBase = 479;
 		w = 22;
 		xStep = (float)((327 - xBase - Config.max*w)/(Config.max-1));
 		int cv = Math.max(Scores.currentVisenv, Config.min);

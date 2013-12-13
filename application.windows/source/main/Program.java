@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import Controls.*;
 import processing.core.PApplet;
-import processing.core.PImage;
 
 @SuppressWarnings("serial")
 public class Program extends PApplet {
@@ -12,8 +11,6 @@ public class Program extends PApplet {
 	LinkedList<BasicControl> controls;
 	HashMap<String, SecondLevelSelector> secondLevelSelectors;
 	public HashMap<String, ThirdLevelSelector> thirdLevelSelectors;
-	
-	PImage bar;
 	
 	public MapArea map;
 	
@@ -44,9 +41,6 @@ public class Program extends PApplet {
 			tls.draw();
 		}
 		
-		image(bar, 0, 0);
-
-		
 	}
 	
 	public FirstLevelSelector fls;
@@ -75,9 +69,6 @@ public class Program extends PApplet {
 		
 		map = new MapArea(Config.x1, Config.y1, Config.width1, Config.height1);
 		controls.add(map);
-		
-		System.out.println(Assets.assets);
-		bar = (PImage) Assets.assets.get("bar");
 	}
 
 

@@ -36,7 +36,7 @@ public class SecondLevelSelector extends BasicControl {
 				PImage text = (PImage) areaHM.get("text");
 				float mx, my, mw, mh;
 				mx = (float) (x+ (4.5*i*epsilonX));
-				my = y+2*epsilonY;
+				my = y+3*epsilonY;
 				mw = 4*epsilonX;
 				mh = 16*epsilonY;
 				SecondLevelOption slo = new SecondLevelOption(mx, my, mw, mh, on, off, over, text, area);

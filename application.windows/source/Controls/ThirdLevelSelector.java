@@ -41,7 +41,7 @@ public class ThirdLevelSelector extends BasicControl {
 				PImage mapImage = (PImage) areaHM.get("maparea");		
 				float mx, my, mw, mh;
 				mx = (float) (x+ (6.33*i*epsilonX)+epsilonX);
-				my = y+2*epsilonY;
+				my = y+3*epsilonY;
 				mw = (float) (5.33*epsilonX);
 				mh = 16*epsilonY;
 				ThirdLevelOption tlo = new ThirdLevelOption(mx, my, mw, mh, on, off, over, text, overText, mapImage, area, Assets.data.get(area));
